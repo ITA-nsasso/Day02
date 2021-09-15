@@ -15,26 +15,32 @@ class RomainToInt{
             if (str.toCharArray()[i] == 'I' || str.toCharArray()[i] == 'V' || str.toCharArray()[i] == 'X' || str.toCharArray()[i] == 'L' || str.toCharArray()[i] == 'C' || str.toCharArray()[i] == 'D' || str.toCharArray()[i] == 'M'){
                 switch (str.toCharArray()[i]){
                     case 'I':
-                        if ((str.toCharArray()[i+1] == 'V' || str.toCharArray()[i+1] == 'X') && i < str.toCharArray().length)
-                            val -= 1;
-                        else
-                            val += 1;
+                        if (i < str.toCharArray().length){
+                            if (str.toCharArray()[i+1] == 'V' || str.toCharArray()[i+1] == 'X')
+                                val -= 1;
+                            else
+                                val += 1;
+                        }
                         break;
                     case 'V':
                         val += 5;
                     case 'X':
-                        if ((str.toCharArray()[i+1] == 'L' || str.toCharArray()[i+1] == 'C') && i < str.toCharArray().length)
-                            val -= 10;
-                        else
-                            val += 1;
+                        if (i < str.toCharArray().length){
+                            if (str.toCharArray()[i+1] == 'L' || str.toCharArray()[i+1] == 'C')
+                                val -= 10;
+                            else
+                                val += 1;
+                        }
                         break;
                     case 'L':
                         val += 50;
                     case 'C':
-                        if ((str.toCharArray()[i+1] == 'D' || str.toCharArray()[i+1] == 'M') && i < str.toCharArray().length)
-                            val -= 100;
-                        else
-                            val += 100;
+                        if (i < str.toCharArray().length){
+                            if (str.toCharArray()[i+1] == 'D' || str.toCharArray()[i+1] == 'M')
+                                val -= 100;
+                            else
+                                val += 100;
+                        }
                         break;
                     case 'D':
                         val += 500;
